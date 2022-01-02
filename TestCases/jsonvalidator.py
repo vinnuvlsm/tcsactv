@@ -42,7 +42,7 @@ regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
 # the URL and validates for proper email-id format using
 # the regular expression for valid email id.
 # Return Value: True/False
-def checkvalidEmail(email):
+def checkValidEmail(email):
     # pass the regular expression
     # and the string into the fullmatch() method
     if (re.fullmatch(regex, email)):
@@ -50,7 +50,12 @@ def checkvalidEmail(email):
     else:
         return False
 
-def verifyjsonSchemaValidation(responce):
+# Function Name: verifyJsonSchemaValidation
+# Description: Accepts data from
+# the URL and validates for proper  json schema using
+# the regular expression for valid json Schema.
+# Return Value: True/False
+def verifyJsonSchemaValidation(response):
     schema = {
         "type": "object",
         "properties": {
