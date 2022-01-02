@@ -49,3 +49,27 @@ def checkvalidEmail(email):
         return True
     else:
         return False
+
+def verifyjsonSchemaValidation(responce):
+    schema = {
+        "type": "object",
+        "properties": {
+            "id": {
+                "type": "number"
+            },
+            "name": {
+                "type": "string"
+            },
+            "email": {
+
+                "type": "string"
+            },
+            "gender": {
+                "type": "string"
+            },
+            "status": {
+                "type": "string"
+            }
+        },
+        "required": ["equipmentId", "lastUpdate", "state"]
+    }
