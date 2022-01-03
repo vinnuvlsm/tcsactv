@@ -1,6 +1,7 @@
 import json
 import re
 
+
 def json_validator(data):
     try:
         json.dumps(data)
@@ -10,5 +11,4 @@ def json_validator(data):
         print("Invalid JSON: %s" % error)
         return False
 
-
-#regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+# regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
