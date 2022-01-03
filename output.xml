@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.8.10 on linux)" generated="20220103 10:16:29.692" rpa="false" schemaversion="2">
+<suite id="s1" name="TestCase01" source="/home/vinnuvlsm/PycharmProjects/tcsactv/TestCases/TestCase01.robot">
+<test id="s1-t1" name="Verify Rest service without auth">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>api_demo</arg>
+<arg>${url}</arg>
+<arg>verify=True</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220103 10:16:30.275" level="INFO">Creating Session using : alias=api_demo, url=https://gorest.co.in/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20220103 10:16:30.273" endtime="20220103 10:16:30.275"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${res}</var>
+<arg>api_demo</arg>
+<arg>public/v1/users</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220103 10:16:30.840" level="INFO">GET Request : url=https://gorest.co.in/public/v1/users 
+ path_url=/public/v1/users 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220103 10:16:30.840" level="INFO">GET Response : url=https://gorest.co.in/public/v1/users 
+ status=200, reason=OK 
+ headers={'Server': 'nginx', 'Date': 'Mon, 03 Jan 2022 04:46:31 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Vary': 'Accept-Encoding, Origin', 'X-Frame-Options': 'SAMEORIGIN', 'X-XSS-Protection': '0', 'X-Content-Type-Options': 'nosniff', 'X-Download-Options': 'noopen', 'X-Permitted-Cross-Domain-Policies': 'none', 'Referrer-Policy': 'strict-origin-when-cross-origin', 'ETag': 'W/"2366c04b44aee2d49b1b0f7b981ca880"', 'Cache-Control': 'max-age=0, private, must-revalidate', 'X-Request-Id': '5b7c3ff6-bda6-4a40-89ff-06adec6c58fc', 'X-Runtime': '0.008577', 'Strict-Transport-Security': 'max-age=63072000; includeSubDomains', 'Content-Encoding': 'gzip'} 
+ body={"meta":{"pagination":{"total":1400,"pages":70,"page":1,"limit":20,"links":{"previous":null,"current":"https://gorest.co.in/public/v1/users?page=1","next":"https://gorest.co.in/public/v1/users?page=2"}}},"data":[{"id":1,"name":"Adinath Varma","email":"varma_adinath@mcglynn.org","gender":"male","status":"inactive"},{"id":2,"name":"Nikita Kaur","email":"kaur_nikita@miller.net","gender":"male","status":"active"},{"id":3,"name":"Kashyap Namboothiri","email":"namboothiri_kashyap@lowe.org","gender":"male","status":"inactive"},{"id":4,"name":"Chandramauli Khatri","email":"chandramauli_khatri@hodkiewicz.net","gender":"male","status":"active"},{"id":5,"name":"Prof. Chaten Pilla","email":"prof_chaten_pilla@zieme.biz","gender":"female","status":"inactive"},{"id":6,"name":"Bhaves Banerjee","email":"banerjee_bhaves@mosciski.co","gender":"female","status":"inactive"},{"id":7,"name":"Chandramauli Bharadwaj","email":"chandramauli_bharadwaj@dooley.biz","gender":"female","status":"inactive"},{"id":8,"name":"Veda Kaul","email":"veda_kaul@oberbrunner.io","gender":"female","status":"active"},{"id":9,"name":"Rajinder Kocchar","email":"rajinder_kocchar@corkery-mosciski.com","gender":"female","status":"inactive"},{"id":10,"name":"Dr. Bhargavi Desai","email":"desai_bhargavi_dr@farrell.biz","gender":"male","status":"inactive"},{"id":11,"name":"Msgr. Dayaamay Bhattacharya","email":"dayaamay_bhattacharya_msgr@kling.net","gender":"male","status":"inactive"},{"id":12,"name":"Deeptendu Marar","email":"marar_deeptendu@dibbert-jast.name","gender":"female","status":"active"},{"id":13,"name":"Miss Bhramar Gowda","email":"bhramar_gowda_miss@will.name","gender":"male","status":"inactive"},{"id":14,"name":"Rajinder Shah","email":"rajinder_shah@bogan.name","gender":"male","status":"inactive"},{"id":15,"name":"Aaryan Kaur","email":"kaur_aaryan@schmeler.io","gender":"male","status":"inactive"},{"id":17,"name":"Garud Tandon","email":"garud_tandon@murray-ratke.info","gender":"female","status":"inactive"},{"id":18,"name":"Chiranjeev Jain","email":"chiranjeev_jain@prohaska-bergnaum.com","gender":"female","status":"inactive"},{"id":19,"name":"Anjali Namboothiri","email":"anjali_namboothiri@cronin-lockman.org","gender":"female","status":"inactive"},{"id":20,"name":"Chandrabhan Kaul","email":"chandrabhan_kaul@mante-spencer.co","gender":"female","status":"active"},{"id":21,"name":"Vaishno Dubashi","email":"vaishno_dubashi@osinski.info","gender":"female","status":"active"}]} 
+ </msg>
+<msg timestamp="20220103 10:16:30.841" level="INFO">${res} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220103 10:16:30.276" endtime="20220103 10:16:30.841"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${res.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220103 10:16:30.842" endtime="20220103 10:16:30.845"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${res.status_code}</arg>
+<arg>${200}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220103 10:16:30.846" endtime="20220103 10:16:30.849"/>
+</kw>
+<status status="PASS" starttime="20220103 10:16:30.272" endtime="20220103 10:16:30.850"/>
+</test>
+<test id="s1-t2" name="Verify non-ssl rest endpoint">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>api_demo</arg>
+<arg>http://gorest.co.in/</arg>
+<arg>verify=True</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220103 10:16:30.853" level="INFO">Creating Session using : alias=api_demo, url=http://gorest.co.in/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20220103 10:16:30.853" endtime="20220103 10:16:30.854"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${res}</var>
+<arg>api_demo</arg>
+<arg>public/v1/users</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220103 10:16:31.659" level="INFO">GET Request : url=http://gorest.co.in/public/v1/users (redirected) 
+ path_url=/public/v1/users 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220103 10:16:31.660" level="INFO">GET Response : url=https://gorest.co.in/public/v1/users 
+ status=200, reason=OK 
+ headers={'Server': 'nginx', 'Date': 'Mon, 03 Jan 2022 04:46:32 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Vary': 'Accept-Encoding, Origin', 'X-Frame-Options': 'SAMEORIGIN', 'X-XSS-Protection': '0', 'X-Content-Type-Options': 'nosniff', 'X-Download-Options': 'noopen', 'X-Permitted-Cross-Domain-Policies': 'none', 'Referrer-Policy': 'strict-origin-when-cross-origin', 'ETag': 'W/"2366c04b44aee2d49b1b0f7b981ca880"', 'Cache-Control': 'max-age=0, private, must-revalidate', 'X-Request-Id': 'a3b409b5-aeaa-443c-844c-6d5d0fd87a0f', 'X-Runtime': '0.008304', 'Strict-Transport-Security': 'max-age=63072000; includeSubDomains', 'Content-Encoding': 'gzip'} 
+ body={"meta":{"pagination":{"total":1400,"pages":70,"page":1,"limit":20,"links":{"previous":null,"current":"https://gorest.co.in/public/v1/users?page=1","next":"https://gorest.co.in/public/v1/users?page=2"}}},"data":[{"id":1,"name":"Adinath Varma","email":"varma_adinath@mcglynn.org","gender":"male","status":"inactive"},{"id":2,"name":"Nikita Kaur","email":"kaur_nikita@miller.net","gender":"male","status":"active"},{"id":3,"name":"Kashyap Namboothiri","email":"namboothiri_kashyap@lowe.org","gender":"male","status":"inactive"},{"id":4,"name":"Chandramauli Khatri","email":"chandramauli_khatri@hodkiewicz.net","gender":"male","status":"active"},{"id":5,"name":"Prof. Chaten Pilla","email":"prof_chaten_pilla@zieme.biz","gender":"female","status":"inactive"},{"id":6,"name":"Bhaves Banerjee","email":"banerjee_bhaves@mosciski.co","gender":"female","status":"inactive"},{"id":7,"name":"Chandramauli Bharadwaj","email":"chandramauli_bharadwaj@dooley.biz","gender":"female","status":"inactive"},{"id":8,"name":"Veda Kaul","email":"veda_kaul@oberbrunner.io","gender":"female","status":"active"},{"id":9,"name":"Rajinder Kocchar","email":"rajinder_kocchar@corkery-mosciski.com","gender":"female","status":"inactive"},{"id":10,"name":"Dr. Bhargavi Desai","email":"desai_bhargavi_dr@farrell.biz","gender":"male","status":"inactive"},{"id":11,"name":"Msgr. Dayaamay Bhattacharya","email":"dayaamay_bhattacharya_msgr@kling.net","gender":"male","status":"inactive"},{"id":12,"name":"Deeptendu Marar","email":"marar_deeptendu@dibbert-jast.name","gender":"female","status":"active"},{"id":13,"name":"Miss Bhramar Gowda","email":"bhramar_gowda_miss@will.name","gender":"male","status":"inactive"},{"id":14,"name":"Rajinder Shah","email":"rajinder_shah@bogan.name","gender":"male","status":"inactive"},{"id":15,"name":"Aaryan Kaur","email":"kaur_aaryan@schmeler.io","gender":"male","status":"inactive"},{"id":17,"name":"Garud Tandon","email":"garud_tandon@murray-ratke.info","gender":"female","status":"inactive"},{"id":18,"name":"Chiranjeev Jain","email":"chiranjeev_jain@prohaska-bergnaum.com","gender":"female","status":"inactive"},{"id":19,"name":"Anjali Namboothiri","email":"anjali_namboothiri@cronin-lockman.org","gender":"female","status":"inactive"},{"id":20,"name":"Chandrabhan Kaul","email":"chandrabhan_kaul@mante-spencer.co","gender":"female","status":"active"},{"id":21,"name":"Vaishno Dubashi","email":"vaishno_dubashi@osinski.info","gender":"female","status":"active"}]} 
+ </msg>
+<msg timestamp="20220103 10:16:31.661" level="INFO">${res} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220103 10:16:30.855" endtime="20220103 10:16:31.661"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${res.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220103 10:16:31.662" endtime="20220103 10:16:31.665"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${res.status_code}</arg>
+<arg>${200}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220103 10:16:31.666" endtime="20220103 10:16:31.670"/>
+</kw>
+<status status="PASS" starttime="20220103 10:16:30.851" endtime="20220103 10:16:31.671"/>
+</test>
+<status status="PASS" starttime="20220103 10:16:29.695" endtime="20220103 10:16:31.674"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="TestCase01">TestCase01</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
